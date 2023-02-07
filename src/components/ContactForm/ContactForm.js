@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { addContact } from '../../redux/operations';
-import { getContacts } from '../../redux/selectors';
+import { addContact } from 'redux/contacts/contacts.operations';
+import { getContacts } from 'redux/contacts/contacts.selectors';
 import { useSelector, useDispatch } from 'react-redux';
 
 // import PropTypes from 'prop-types';
