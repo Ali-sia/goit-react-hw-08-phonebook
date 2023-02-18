@@ -1,15 +1,14 @@
 // import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-// import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contacts/contacts.operations';
-import { selectLoading } from '../../redux/contacts/contacts.selectors';
+import { deleteContact } from '../../redux/contacts/contacts.operations';
+import { getIsLoading } from '../../redux/contacts/contacts.selectors';
 
 import { StyledButton } from '../App.styled';
 import { ContactItem } from './Contact.styled';
 
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectLoading);
+  const isLoading = useSelector(getIsLoading);
   const { id, name, number } = contact;
   const handleDelete = () => dispatch(deleteContact(id));
 
@@ -19,7 +18,6 @@ const Contact = ({ contact }) => {
         {name}, {number}
       </p>
       <StyledButton type="button" disabled={isLoading} onClick={handleDelete}>
-        {/* <StyledButton type="button" onClick={handleDelete}> */}
         Delete
       </StyledButton>
     </ContactItem>

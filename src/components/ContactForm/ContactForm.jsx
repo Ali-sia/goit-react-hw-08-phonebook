@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { addContact } from 'redux/contacts/contacts.operations';
-import { getContacts } from 'redux/contacts/contacts.selectors';
+import { addContact } from '../../redux/contacts/contacts.operations';
+import { getContacts } from '../../redux/contacts/contacts.selectors';
 import { useSelector, useDispatch } from 'react-redux';
+
+import { toast } from 'react-hot-toast';
 
 // import PropTypes from 'prop-types';
 import { Box } from '../Box';
@@ -26,14 +28,21 @@ const ContactForm = () => {
       number,
     };
 
+    // if contact already exist
     if (contacts.find(contact => contact.name === newContact.name)) {
-      alert(`${newContact.name} is already in contacts.`);
-    } else {
-      dispatch(addContact(newContact));
-
-      setName('');
-      setNumber('');
+      toast.error(`${name} is already in contacts`, {
+        autoClose: 1500,
+      });
+      return;
     }
+
+    dispatch(addContact(newContact));
+    toast.success(`${name} add to your contacts`, {
+      autoClose: 1500,
+    });
+
+    setName('');
+    setNumber('');
   };
 
   return (
