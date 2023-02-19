@@ -1,7 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/auth.operations';
-import { Form } from './RegisterForm.styled';
-import { EnterLabel, EnterInput, StyledButton } from '../App.styled';
+
+import FormGroup from '@mui/material/FormGroup';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 import { toast } from 'react-hot-toast';
 
@@ -33,36 +35,83 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} autoComplete="off">
-      <EnterLabel>
-        Username
-        <EnterInput
+    <form onSubmit={handleSubmit}>
+      <FormGroup
+        sx={{
+          maxWidth: '350px',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        }}
+      >
+        <TextField
+          id="filled-basic"
+          label="Username"
+          variant="filled"
           type="text"
           name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
+          sx={{
+            marginBottom: '20px',
+          }}
         />
-      </EnterLabel>
-      <EnterLabel>
-        Email
-        <EnterInput
+        <TextField
+          id="filled-basic"
+          label="Email"
+          variant="filled"
           type="email"
           name="email"
-          // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           required
+          sx={{
+            marginBottom: '20px',
+          }}
         />
-      </EnterLabel>
-      <EnterLabel>
-        Password
-        <EnterInput
+        <TextField
+          id="filled-basic"
+          label="Password"
+          variant="filled"
           type="password"
           name="password"
           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
           required
+          sx={{
+            marginBottom: '20px',
+          }}
         />
-      </EnterLabel>
-      <StyledButton type="submit">Register</StyledButton>
-    </Form>
+
+        <Button variant="contained">Sign up</Button>
+      </FormGroup>
+    </form>
+
+    // <Form onSubmit={handleSubmit} autoComplete="off">
+    //   <EnterLabel>
+    //     Username
+    //     <EnterInput
+    //       type="text"
+    //       name="name"
+    //       pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+    //       title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+    //       required
+    //     />
+    //   </EnterLabel>
+    //   <EnterLabel>
+    //     Email
+    //     <EnterInput
+    //       type="email"
+    //       name="email"
+    //       // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+    //       required
+    //     />
+    //   </EnterLabel>
+    //   <EnterLabel>
+    //     Password
+    //     <EnterInput
+    //       type="password"
+    //       name="password"
+    //       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
+    //       required
+    //     />
+    //   </EnterLabel>
+    //   <StyledButton type="submit">Register</StyledButton>
+    // </Form>
   );
 };
