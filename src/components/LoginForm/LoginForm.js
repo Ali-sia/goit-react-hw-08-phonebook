@@ -1,9 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/auth.operations';
-import { Form } from './LoginForm.styled';
 
 import { toast } from 'react-hot-toast';
-import { EnterLabel, EnterInput, StyledButton } from '../App.styled';
+import FormGroup from '@mui/material/FormGroup';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -32,16 +33,51 @@ export const LoginForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} autoComplete="off">
-      <EnterLabel>
-        Email
-        <EnterInput type="email" name="email" required />
-      </EnterLabel>
-      <EnterLabel>
-        Password
-        <EnterInput type="password" name="password" required />
-      </EnterLabel>
-      <StyledButton type="submit">Log In</StyledButton>
-    </Form>
+    <form onSubmit={handleSubmit}>
+      <FormGroup
+        sx={{
+          maxWidth: '350px',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        }}
+      >
+        <TextField
+          id="filled-basic"
+          label="Email"
+          variant="filled"
+          type="email"
+          name="email"
+          required
+          sx={{
+            marginBottom: '20px',
+          }}
+        />
+        <TextField
+          id="filled-basic"
+          label="Password"
+          variant="filled"
+          type="password"
+          name="password"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
+          required
+          sx={{
+            marginBottom: '20px',
+          }}
+        />
+
+        <Button variant="contained">Log In</Button>
+      </FormGroup>
+    </form>
+    // <Form onSubmit={handleSubmit} autoComplete="off">
+    //   <EnterLabel>
+    //     Email
+    //     <EnterInput type="email" name="email" required />
+    //   </EnterLabel>
+    //   <EnterLabel>
+    //     Password
+    //     <EnterInput type="password" name="password" required />
+    //   </EnterLabel>
+    //   <StyledButton type="submit">Log In</StyledButton>
+    // </Form>
   );
 };
