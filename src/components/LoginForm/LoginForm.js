@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/auth.operations';
-import { Form, Label } from './LoginForm.styled';
+import { Form } from './LoginForm.styled';
 
 import { toast } from 'react-hot-toast';
+import { EnterLabel, EnterInput, StyledButton } from '../App.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -32,15 +33,15 @@ export const LoginForm = () => {
 
   return (
     <Form onSubmit={handleSubmit} autoComplete="off">
-      <Label>
+      <EnterLabel>
         Email
-        <input type="email" name="email" required />
-      </Label>
-      <Label>
+        <EnterInput type="email" name="email" required />
+      </EnterLabel>
+      <EnterLabel>
         Password
-        <input type="password" name="password" required />
-      </Label>
-      <button type="submit">Log In</button>
+        <EnterInput type="password" name="password" required />
+      </EnterLabel>
+      <StyledButton type="submit">Log In</StyledButton>
     </Form>
   );
 };

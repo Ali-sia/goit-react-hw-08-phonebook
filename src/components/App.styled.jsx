@@ -7,7 +7,9 @@ export const EnterLabel = styled.label`
 `;
 export const EnterInput = styled.input`
   width: 100%;
+  height: ${p => p.theme.space[5]}px;
   margin-top: ${p => p.theme.space[2]}px;
+  border-radius: ${p => p.theme.radii.md};
 `;
 
 export const StyledButton = styled.button`
