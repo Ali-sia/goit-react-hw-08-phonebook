@@ -14,6 +14,7 @@ export const LoginForm = () => {
 
     try {
       const form = e.currentTarget;
+      console.log('form.elements.email.value :>> ', form.elements.email.value);
       await dispatch(
         logIn({
           email: form.elements.email.value,
@@ -65,19 +66,10 @@ export const LoginForm = () => {
           }}
         />
 
-        <Button variant="contained">Log In</Button>
+        <Button variant="contained" type="submit">
+          Log In
+        </Button>
       </FormGroup>
     </form>
-    // <Form onSubmit={handleSubmit} autoComplete="off">
-    //   <EnterLabel>
-    //     Email
-    //     <EnterInput type="email" name="email" required />
-    //   </EnterLabel>
-    //   <EnterLabel>
-    //     Password
-    //     <EnterInput type="password" name="password" required />
-    //   </EnterLabel>
-    //   <StyledButton type="submit">Log In</StyledButton>
-    // </Form>
   );
 };
