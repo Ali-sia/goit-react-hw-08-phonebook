@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/auth.operations';
 import { useAuth } from 'hooks';
-import css from './UserMenu.module.css';
 
 import { ColorButton } from 'components/assetsStyles/ButtonStyledFromMUI';
 import Box from '@mui/material/Box';

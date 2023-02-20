@@ -3,20 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/contacts.operations';
 import { getIsLoading } from '../../redux/contacts/contacts.selectors';
 
-import { StyledButton } from '../App.styled';
-import { ContactItem } from './Contact.styled';
-
 import { toast } from 'react-hot-toast';
 
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-// import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-// import ListItem from '@mui/material/ListItem';
-
-// import ListItemButton from '@mui/material/ListItemButton';
-
-// import IconButton from '@mui/material/IconButton';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import ListItemText from '@mui/material/ListItemText';
 
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
