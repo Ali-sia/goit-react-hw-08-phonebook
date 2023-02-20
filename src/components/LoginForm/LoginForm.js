@@ -4,7 +4,8 @@ import { logIn } from 'redux/auth/auth.operations';
 import { toast } from 'react-hot-toast';
 import FormGroup from '@mui/material/FormGroup';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+
+import { ColorButton } from 'components/ButtonStyledFromMUI';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -43,9 +44,9 @@ export const LoginForm = () => {
         }}
       >
         <TextField
-          id="filled-basic"
+          id="outlined-basic"
           label="Email"
-          variant="filled"
+          variant="outlined"
           type="email"
           name="email"
           required
@@ -54,9 +55,9 @@ export const LoginForm = () => {
           }}
         />
         <TextField
-          id="filled-basic"
+          id="outlined-basic"
           label="Password"
-          variant="filled"
+          variant="outlined"
           type="password"
           name="password"
           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
@@ -66,9 +67,9 @@ export const LoginForm = () => {
           }}
         />
 
-        <Button variant="contained" type="submit">
+        <ColorButton variant="contained" type="submit">
           Log In
-        </Button>
+        </ColorButton>
       </FormGroup>
     </form>
   );

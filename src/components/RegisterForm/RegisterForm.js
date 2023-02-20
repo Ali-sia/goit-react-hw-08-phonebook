@@ -3,7 +3,8 @@ import { register } from 'redux/auth/auth.operations';
 
 import FormGroup from '@mui/material/FormGroup';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+
+import { ColorButton } from 'components/ButtonStyledFromMUI';
 
 import { toast } from 'react-hot-toast';
 
@@ -44,9 +45,9 @@ export const RegisterForm = () => {
         }}
       >
         <TextField
-          id="filled-basic"
+          id="outlined-basic"
           label="Username"
-          variant="filled"
+          variant="outlined"
           type="text"
           name="name"
           required
@@ -55,9 +56,9 @@ export const RegisterForm = () => {
           }}
         />
         <TextField
-          id="filled-basic"
+          id="outlined-basic"
           label="Email"
-          variant="filled"
+          variant="outlined"
           type="email"
           name="email"
           required
@@ -66,9 +67,9 @@ export const RegisterForm = () => {
           }}
         />
         <TextField
-          id="filled-basic"
+          id="outlined-basic"
           label="Password"
-          variant="filled"
+          variant="outlined"
           type="password"
           name="password"
           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
@@ -78,9 +79,9 @@ export const RegisterForm = () => {
           }}
         />
 
-        <Button variant="contained" type="submit">
+        <ColorButton variant="contained" type="submit">
           Sign up
-        </Button>
+        </ColorButton>
       </FormGroup>
     </form>
   );
