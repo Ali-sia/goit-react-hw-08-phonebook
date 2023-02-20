@@ -3,7 +3,8 @@ import { setFilter } from '../../redux/contacts/contacts.filter.slice';
 import { getFilter } from '../../redux/contacts/contacts.selectors';
 
 // import PropTypes from 'prop-types';
-import { EnterLabel, EnterInput } from '../App.styled';
+import TextField from '@mui/material/TextField';
+import FormGroup from '@mui/material/FormGroup';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -26,10 +27,22 @@ const Filter = () => {
 
   return (
     <>
-      <EnterLabel>
-        Filter:
-        <EnterInput type="text" value={filter} onChange={onChangeFilter} />
-      </EnterLabel>
+      <FormGroup
+        sx={{
+          marginTop: '20px',
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        }}
+      >
+        <TextField
+          id="outlined-basic"
+          label="Filter"
+          variant="outlined"
+          type="text"
+          value={filter}
+          onChange={onChangeFilter}
+        />
+      </FormGroup>
     </>
   );
 };

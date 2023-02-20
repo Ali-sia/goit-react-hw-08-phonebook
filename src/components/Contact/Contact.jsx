@@ -8,6 +8,23 @@ import { ContactItem } from './Contact.styled';
 
 import { toast } from 'react-hot-toast';
 
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+// import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+// import ListItem from '@mui/material/ListItem';
+
+// import ListItemButton from '@mui/material/ListItemButton';
+
+// import IconButton from '@mui/material/IconButton';
+// import ListItemIcon from '@mui/material/ListItemIcon';
+// import ListItemText from '@mui/material/ListItemText';
+
+import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import ListItemText from '@mui/material/ListItemText';
+import Avatar from '@mui/material/Avatar';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
@@ -26,14 +43,57 @@ const Contact = ({ contact }) => {
   };
 
   return (
-    <ContactItem key={id}>
-      <p>
-        {name}, {number}
-      </p>
-      <StyledButton type="button" disabled={isLoading} onClick={handleDelete}>
-        Delete
-      </StyledButton>
-    </ContactItem>
+    <>
+      <ListItem
+        secondaryAction={
+          <IconButton
+            edge="end"
+            aria-label="delete"
+            type="button"
+            onClick={handleDelete}
+            disabled={isLoading}
+          >
+            <DeleteIcon />
+          </IconButton>
+        }
+        sx={{
+          borderBottom: '1px solid gray',
+        }}
+      >
+        <ListItemAvatar>
+          <Avatar>
+            <AccountCircleOutlinedIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary={name} secondary={number} />
+      </ListItem>
+    </>
+    // <ListItem
+    //   key={id}
+    //   // sx={{
+    //   //   borderBottom: '1px solid gray',
+    //   //   // display: 'flex',
+    //   //   // justifyContent: 'space-between',
+    //   // }}
+    // >
+    //   <ListItemIcon>
+    //     <AccountCircleOutlinedIcon sx={{ marginRight: '12px' }} />
+    //   </ListItemIcon>
+    //   <ListItemText>
+    //     {name}, {number}
+    //   </ListItemText>
+    //   <IconButton
+    //     type="button"
+    //     disabled={isLoading}
+    //     onClick={handleDelete}
+    //     aria-label="delete"
+    //     sx={{
+    //       maxWidth: '60px',
+    //     }}
+    //   >
+    //     <DeleteOutlineOutlinedIcon />
+    //   </IconButton>
+    // </ListItem>
   );
 };
 

@@ -6,9 +6,8 @@ import {
 
 // import PropTypes from 'prop-types';
 import { NotFound } from 'components/NotFound/NotFound';
-
 import Contact from '../Contact/index';
-import { ContactListStyled } from './ContactList.styled';
+import List from '@mui/material/List';
 
 const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -22,7 +21,7 @@ const ContactList = () => {
   );
 
   return (
-    <ContactListStyled>
+    <List>
       {filteredContacts.length ? (
         filteredContacts.map(contact => {
           return <Contact key={contact.id} contact={contact} />;
@@ -30,7 +29,7 @@ const ContactList = () => {
       ) : (
         <NotFound />
       )}
-    </ContactListStyled>
+    </List>
   );
 };
 
