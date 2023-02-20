@@ -11,7 +11,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import { ColorButton } from 'components/ButtonStyledFromMUI';
+import { ColorButton } from 'components/assetsStyles/ButtonStyledFromMUI';
 
 import { nanoid } from '../../../node_modules/nanoid/index';
 

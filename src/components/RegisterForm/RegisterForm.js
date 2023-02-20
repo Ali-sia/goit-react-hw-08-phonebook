@@ -4,7 +4,7 @@ import { register } from 'redux/auth/auth.operations';
 import FormGroup from '@mui/material/FormGroup';
 import TextField from '@mui/material/TextField';
 
-import { ColorButton } from 'components/ButtonStyledFromMUI';
+import { ColorButton } from 'components/assetsStyles/ButtonStyledFromMUI';
 
 import { toast } from 'react-hot-toast';
 

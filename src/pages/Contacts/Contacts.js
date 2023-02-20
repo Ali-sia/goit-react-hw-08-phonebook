@@ -4,11 +4,14 @@ import { Helmet } from 'react-helmet';
 import ContactList from 'components/ContactList/ContactList';
 import ContactForm from 'components/ContactForm/ContactForm';
 import Filter from 'components/Filter';
-import Title from 'components/Title/Title';
+
+import { Loader } from 'components/Loader/Loader';
 import { fetchContacts } from 'redux/contacts/contacts.operations';
 import { getIsLoading } from 'redux/contacts/contacts.selectors';
 
-export default function Tasks() {
+import { Typography } from '@mui/material';
+
+export default function Contacts() {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
 
@@ -19,11 +22,16 @@ export default function Tasks() {
   return (
     <>
       <Helmet>
-        <Title children="Your contacts" />
+        <Typography variant="h4" gutterBottom>
+          Your contacts
+        </Typography>
       </Helmet>
       <ContactForm />
+      <Typography variant="h4" gutterBottom sx={{ marginTop: '15px' }}>
+        Contacts list
+      </Typography>
       <Filter />
-      <div>{isLoading && 'Request in progress...'}</div>
+      <div>{isLoading && <Loader />}</div>
       <ContactList />
     </>
   );

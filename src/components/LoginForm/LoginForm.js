@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 import FormGroup from '@mui/material/FormGroup';
 import TextField from '@mui/material/TextField';
 
-import { ColorButton } from 'components/ButtonStyledFromMUI';
+import { ColorButton } from 'components/assetsStyles/ButtonStyledFromMUI';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
